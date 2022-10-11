@@ -28,7 +28,7 @@ namespace :dev do
 
     puts "Cadastrando telefones..."
     Contact.all.each do |contact|
-      Random.rand(5).times do |i|
+      Random.rand(1..5).times do |i|
         phone = Phone.create!(number: Faker::PhoneNumber.cell_phone, contact: contact)
         contact.save!
       end
