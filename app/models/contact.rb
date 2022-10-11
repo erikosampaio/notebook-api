@@ -1,6 +1,14 @@
 class Contact < ApplicationRecord
   belongs_to :kind #, optional: true --> Obrigado o contato ter um tipo (kind)
 
+  def hello
+    I18n.t('hello')
+  end
+
+  def i18n
+    I18n.default_locale
+  end
+
   # def author
   #   "Ériko Sampaio"
   # end
