@@ -1,9 +1,8 @@
 class Contact < ApplicationRecord
+  
+  # Associations
   belongs_to :kind #, optional: true --> Obrigado o contato ter um tipo (kind)
-
-  # def birthdate_br
-  #   I18n.l(self.birthdate) unless self.birthdate.blank?
-  # end
+  has_many :phones
 
   def to_br
     { 
@@ -13,6 +12,10 @@ class Contact < ApplicationRecord
       birthdate: (I18n.l(self.birthdate) unless self.birthdate.blank?)
     }
   end
+
+  # def birthdate_br
+  #   I18n.l(self.birthdate) unless self.birthdate.blank?
+  # end
 
   # def hello
   #   I18n.t('hello')

@@ -9,7 +9,7 @@ namespace :dev do
         description: kind
       )
     end
-    puts "Tipos de contatos Cadastrados!"
+    puts "Tipos de contatos Cadastrados com sucesso!"
 
     ###########################################
 
@@ -22,6 +22,17 @@ namespace :dev do
         kind: Kind.all.sample
       )
     end
-    puts "Contatos Cadastrados!"
+    puts "Contatos Cadastrados com sucesso!"
+
+    ###########################################
+
+    puts "Cadastrando telefones..."
+    Contact.all.each do |contact|
+      Random.rand(5).times do |i|
+        phone = Phone.create!(number: Faker::PhoneNumber.cell_phone, contact: contact)
+        contact.save!
+      end
+    end
+    puts "Telefones Cadastrados com sucesso!"
   end
 end
