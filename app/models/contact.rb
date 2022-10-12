@@ -4,7 +4,7 @@ class Contact < ApplicationRecord
   belongs_to :kind #, optional: true --> Obrigado o contato ter um tipo (kind)
   has_many :phones
 
-  accepts_nested_attributes_for :phones
+  accepts_nested_attributes_for :phones, allow_destroy: true
 
   def as_json(options={})
     h = super(options)
