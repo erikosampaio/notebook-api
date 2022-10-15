@@ -3,8 +3,9 @@ class ContactSerializer
   attributes :id, :name, :email, :birthdate
 
   belongs_to :kind
-  has_many :phones
-  has_one :address
+  # has_many :phones
+  # has_one :address
+  
 
   def attributes(*args)
     h = super(*args)
@@ -13,8 +14,4 @@ class ContactSerializer
     h
   end
 
-  # Example
-  # contact = Contact.last
-  # hash = ContactSerializer.new(contact).serializable_hash
-  # json = hash.to_json
 end
