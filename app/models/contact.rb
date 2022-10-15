@@ -1,4 +1,6 @@
 class Contact < ApplicationRecord
+
+  # attr_accessor :id, :name, :email, :birthdate
   
   # Associations
   belongs_to :kind #, optional: true --> Obrigado o contato ter um tipo (kind)
@@ -10,7 +12,8 @@ class Contact < ApplicationRecord
 
   def as_json(options={})
     h = super(options)
-    h[:birthdate] = (I18n.l(self.birthdate) unless self.birthdate.blank?)
+    # ---> pt-BR <---h[:birthdate] = (I18n.l(object.birthdate) unless object.birthdate.blank?)
+    h[:birthdate] = self.birthdate.to_time.iso8601 unless self.birthdate.blank?
     h
   end
 
