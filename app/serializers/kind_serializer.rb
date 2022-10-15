@@ -1,4 +1,4 @@
 class KindSerializer
   include JSONAPI::Serializer
-  attributes 
+  attributes :id, :description
 end
