@@ -1,14 +1,15 @@
 class ContactSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :birthdate#, :author
 
-  belongs_to :kind
+  belongs_to :kind do
+    link(:kind) { kind_url(object.kind.id) }
+  end
   has_many :phones
   has_one :address
 
-  # Caso queria inserir um atributo virtual nos attributes
-  # def author
-  #   "Ériko Sampaio"
-  # end
+  # Setting 'url' when to want using the complete path of the your site (App)
+  link(:self) { contact_url(object.id) }
+  link(:kind) { kind_url(object.kind.id) }
 
   meta do
     {
@@ -22,4 +23,9 @@ class ContactSerializer < ActiveModel::Serializer
     h[:birthdate] = object.birthdate.to_time.iso8601 unless object.birthdate.blank?
     h
   end
+
+  # Caso queria inserir um atributo virtual nos attributes
+  # def author
+  #   "Ériko Sampaio"
+  # end
 end
