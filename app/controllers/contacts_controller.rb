@@ -6,13 +6,13 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
 
     # render json: @contacts.map { |contact| contact.to_br } #, methods: :birthdate_br #,[:hello, :i18n]
-    render json: @contacts, include: [:kind, :phones, :address]
+    render json: @contacts, include: [:kind] #, include: [:kind, :phones, :address]
   end
 
   # GET /contacts/1
   def show
     # render json: @contact.to_br #, include: :kind --> caso queira mostrar o tipo (kind)
-    render json: @contact, include: [:kind, :phones, :address]
+    render json: @contact, include: [:kind]#, meta: { author: "Ériko" }#, include: [:kind, :phones, :address]
   end
 
   # POST /contacts

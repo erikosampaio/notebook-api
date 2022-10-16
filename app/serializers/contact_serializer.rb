@@ -1,9 +1,20 @@
 class ContactSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :birthdate
+  attributes :id, :name, :email, :birthdate#, :author
 
   belongs_to :kind
   has_many :phones
   has_one :address
+
+  # Caso queria inserir um atributo virtual nos attributes
+  # def author
+  #   "Ériko Sampaio"
+  # end
+
+  meta do
+    {
+      author: "Sr. Ériko"
+    }
+  end
 
   def attributes(*args)
     h = super(*args)
