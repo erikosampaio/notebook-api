@@ -12,7 +12,7 @@ class ContactSerializer < ActiveModel::Serializer
   # link(:kind) { kind_url(object.kind.id) }
 
   # Using virtual attributes for all the actions
-  # meta do
+  # meta do 
   #   {
   #     author: "Sr. Ériko"
   #   }
