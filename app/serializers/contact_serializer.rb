@@ -8,7 +8,9 @@ class ContactSerializer < ActiveModel::Serializer
     link(:related) { contact_phones_url(object.id) }
   end
 
-  has_one :address
+  has_one :address do
+    link(:related) { contact_address_url(object.id) }
+  end
 
   # Setting 'url' when to want using the complete path of the your site (App)
   # link(:self) { contact_url(object.id) }

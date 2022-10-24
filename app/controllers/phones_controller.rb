@@ -5,7 +5,9 @@ class PhonesController < ApplicationController
     render json: @phones
   end
 
-  def set_phones
-    @phones = Contact.find(params[:contact_id]).phones
-  end
+  private
+
+    def set_phones
+      @phones = Contact.find(params[:contact_id]).phones
+    end
 end
