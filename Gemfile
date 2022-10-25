@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Using rails c with more pratice e view interactive
 gem "awesome_print", "~> 1.9"
+
+gem "jwt", "~> 2.5"

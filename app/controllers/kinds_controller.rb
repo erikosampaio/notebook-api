@@ -1,6 +1,6 @@
 class KindsController < ApplicationController
   
-  TOKEN = "eriko123"
+  # TOKEN = "eriko123";
   # include ActionController::HttpAuthentication::Basic::ControllerMethods
   # http_basic_authenticate_with name:"eriko", password:"123"
 
@@ -72,7 +72,9 @@ class KindsController < ApplicationController
       authenticate_or_request_with_http_token do |token, options|
         # Compare the tokens in a time-constant manner, to mitigate
         # timing attacks.
-        ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+        # ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+        hmac_secret = 'my$ecretK3y'
+        JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
         # Ou:
         # ActiveSupport::SecurityUtils.secure_compare(
         #   ::Digest::SHA256.hexdigest(token),
