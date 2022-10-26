@@ -59,3 +59,5 @@ gem "awesome_print", "~> 1.9"
 gem "jwt", "~> 2.5"
 
 gem "devise_token_auth", "~> 1.2"
+
+gem "devise-i18n", "~> 1.10"

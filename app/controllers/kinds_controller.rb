@@ -3,7 +3,7 @@ class KindsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_kind, only: [:show, :update, :destroy]
   
-  # TOKEN = "eriko123";
+  # TOKEN = "eriko123"
   # include ActionController::HttpAuthentication::Basic::ControllerMethods
   # http_basic_authenticate_with name:"eriko", password:"123"
 
