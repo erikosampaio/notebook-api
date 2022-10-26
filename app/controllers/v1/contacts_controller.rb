@@ -4,7 +4,7 @@ module V1
 
     # GET /contacts
     def index
-      @contacts = Contact.all
+      @contacts = Contact.first(100)
 
       # render json: @contacts.map { |contact| contact.to_br } #, methods: :birthdate_br #,[:hello, :i18n]
       render json: @contacts, include: [:kind, :phones, :address] #, include: [:kind, :phones, :address]
