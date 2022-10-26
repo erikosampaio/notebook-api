@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :kinds
 
-  api_version(:module => "V1", :header => { :name => "Accept", :value => "application/vnd.api+json; version=1" }) do
+  api_version(:module => "V1", :header => { :name => "X-Version", :value => "1.0" }) do
     resources :contacts do
       resource :kind, only: [:show]
       resource :kind, only: [:show], path: 'relationships/kind'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  api_version(:module => "V2", :header => { :name => "Accept", :value => "application/vnd.api+json; version=2" }) do
+  api_version(:module => "V2", :header => { :name => "X-Version", :value => "2.0" }) do
     resources :contacts do
       resource :kind, only: [:show]
       resource :kind, only: [:show], path: 'relationships/kind'
