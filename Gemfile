@@ -63,3 +63,7 @@ gem "devise_token_auth", "~> 1.2"
 gem "devise-i18n", "~> 1.10"
 
 gem "versionist", "~> 1.5.0"
+
+gem "kaminari"
+
+gem "api-pagination", "~> 4.8"

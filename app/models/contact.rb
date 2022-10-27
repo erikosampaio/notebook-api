@@ -1,4 +1,7 @@
 class Contact < ApplicationRecord
+
+  # Kaminari Paginate
+  paginates_per 5
   
   # Associations
   belongs_to :kind #, optional: true --> Obrigado o contato ter um tipo (kind)

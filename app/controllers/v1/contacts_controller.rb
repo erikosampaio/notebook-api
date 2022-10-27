@@ -4,10 +4,10 @@ module V1
 
     # GET /contacts
     def index
-      @contacts = Contact.first(100)
+      @contacts = Contact.all.page(params[:page])
 
       # render json: @contacts.map { |contact| contact.to_br } #, methods: :birthdate_br #,[:hello, :i18n]
-      render json: @contacts, include: [:kind, :phones, :address] #, include: [:kind, :phones, :address]
+      paginate json: @contacts#, include: [:kind, :phones, :address]
     end
 
     # GET /contacts/1
