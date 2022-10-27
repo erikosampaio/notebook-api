@@ -32,8 +32,9 @@ namespace :dev do
 
     puts "Cadastrando telefones..."
     Contact.all.each do |contact|
-      Random.rand(1..5).times do |i|
-        phone = Phone.create!(number: Faker::PhoneNumber.cell_phone, contact: contact)
+      Random.rand(5).times do |i|
+        phone = Phone.create!(number: Faker::PhoneNumber.cell_phone)
+        contact.phones << phone
         contact.save!
       end
     end
@@ -50,5 +51,13 @@ namespace :dev do
       )
     end
     puts "Endereços Cadastrados com sucesso!"
+
+    puts "Criando Usuário Padrão..."
+    User.create!(
+      email:"eriko@eriko.com",
+      password:"12345678",
+      password_confirmation:"12345678"
+    )
+    puts "Usuário Criado Com Sucesso!"
   end
 end
