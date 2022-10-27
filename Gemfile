@@ -66,4 +66,4 @@ gem "versionist", "~> 1.5.0"
 
 gem "kaminari"
 
-gem "api-pagination", "~> 4.8"
+# gem "api-pagination", "~> 4.8"
